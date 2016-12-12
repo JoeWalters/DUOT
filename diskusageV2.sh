@@ -1,7 +1,8 @@
 #!/bin/bash
 USAGEFILE="/root/usageovertimeV2.csv"
-FULL=$(df /mnt/common | grep common | awk '{print $2}')
+DISK=/disk/to/check
 
+FULL=$(df $DISK | tail -1 | awk '{print $2}')
 ARRAY=()
 LINES=$(cat $USAGEFILE | wc -l)
 
