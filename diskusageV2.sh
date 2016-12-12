@@ -1,6 +1,6 @@
 #!/bin/bash
-USAGEFILE="/root/usageovertimeV2.csv"
-DISK=/disk/to/check
+USAGEFILE="/root/usageovertimeV2.csv" # This is a file with disk usage to analyze below - Will be explained on another date
+DISK=/disk/to/check # The disk to be checked against
 
 FULL=$(df $DISK | tail -1 | awk '{print $2}')
 ARRAY=()
