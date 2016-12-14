@@ -1,7 +1,9 @@
 # Disk Usage Over Time - DUOT
 
 DUOT a two part script.
+
 1. On every run, DUOT checks the disk usage of a particular mount point and outputs it to a specified csv file as YYMMDD,diskusage (ie: 20161214,21452214). If run every day, this can be useful for tracking your usage in excel or libreCalc.
+
 2. Approximate when your disk will be full based on your growth average. The more times this script is run, the more accurate it should become due to the fluctuations in disk usage.
 
 ## Usage
