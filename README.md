@@ -1,7 +1,7 @@
 # Disk Usage Over Time - DUOT
 
 
-1. `diskusage.sh` - Checks the disk usage of a particular mount point and outputs it to a specified csv file as YYMMDD,diskusage (ie: 20161214,21452214). If run every day, this can be useful for tracking your usage in excel or libreCalc in a pretty graph. The more times this script is run, the more accurate it should become due to the fluctuations in disk usage. `diskusage.sh` must be run daily to accurately calculate the growth average over time when paired with `estimatefull.sh`.
+1. `diskusage.sh` - Checks the disk usage of a particular mount point and outputs it to a specified csv file as YYMMDD,diskusage (ie: 20161214,21452214). If run every day, this can be useful for tracking your usage in excel or libreCalc in a pretty graph. `diskusage.sh` must be run daily to accurately calculate the growth average over time when paired with `estimatefull.sh`. The more times this script is run, the more accurate it should become due to the fluctuations in disk usage.
 
 2. `estimatefull.sh` - Approximates when your disk will be full based on your growth average (Which is generated using the csv file). `diskusage.sh` must be run daily to accurately calculate the growth average over time.
 
@@ -11,7 +11,7 @@
 
 ## Usage
 
-### usageovertime.sh / estimatefull.sh
+### diskusage.sh / estimatefull.sh results
 ```
 root@localhost:/# tail /var/log/usageovertimeV2.csv
 20170508,16512
@@ -24,7 +24,7 @@ root@localhost:/# tail /var/log/usageovertimeV2.csv
 20170515,16710
 20170516,16727
 20170517,16775
-root@localhost:/tmp# ./estimatefull.sh
+root@localhost:/# ./estimatefull.sh
 Estimated date disk will be full: September 08 2018
 ```
 
@@ -32,7 +32,7 @@ Estimated date disk will be full: September 08 2018
 
 Example monthly log.
 ```
-root@localhost:~/scripts# tail /var/log/usageovertime.monthly.dat
+root@localhost:/# tail /var/log/usageovertime.monthly.dat
 2016-11-01 11834
 2016-12-01 12086
 2017-01-01 13938
@@ -44,7 +44,7 @@ root@localhost:~/scripts# tail /var/log/usageovertime.monthly.dat
 
 Install gnuplot and run the following command to get an SVG file that demonstrates past usage.
 ```
-gnuplot -p -e '
+root@localhost:/# gnuplot -p -e '
 set title "Disk Usage Over Time in GB";
 set object 1 rectangle from screen 0,0 to screen 1,1 fillcolor rgb "white" behind;
 set ylabel "Disk Usage in GB";
