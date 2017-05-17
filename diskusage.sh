@@ -19,5 +19,5 @@ source $MYDIR/DUOT.conf
 
 
 if grep -qs $DISK /proc/mounts; then
-    echo "$(date +%Y%m%d),$(df $DISK | grep $DISK | awk '{print $3}')" >> $LOG
+    echo "$(date +%Y%m%d),$(df -BG $DISK | grep $DISK | awk '{print $3}')" | sed -e 's/G//g' >> $LOG
 fi
